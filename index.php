@@ -26,10 +26,7 @@
         }
          div#f2 {
     min-width: 200px;
-        }
-        
-        
-        
+        }        
         
 .grid, .grid__item {
     border: 1px solid #e7e7e7;
