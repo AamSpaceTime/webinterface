@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+
+<html>
+    <head>
+        <link href="/resources/css/main.css" rel="stylesheet">
+        <link href="/resources/css/menu.css" rel="stylesheet">
+        <link href="/resources/js/simple_modal/sm.css" rel="stylesheet">
+        <link href="/resources/fonts/fontawesome-free-5.15.2-web/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../resources/css/main.css" type="text/css"/>
+ <!--load all styles -->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+        <script src="/resources/js/split.js@1.6.2/split.min.js"></script>
+        <script defer src="/resources/js/simple_modal/sm.js"></script>
+    </head>
+    
+    <body>
+    <div id="err_alert" class="popup_block"></div>
+        
+    <div class="flex_main_container">
+      <header>
+          <nav>Header menu</nav>
+      </header>
+      <main>
+          <div id="left_col" class="f_col">
+          <nav>
+            <ul class="tree_menu">
+                <li id="n1_l" class="node"><span data-href="#" class="selected"><i id="n1_i" class="fas fa-caret-right"></i><i class="fas fa-box"></i>Node 1</span>
+		<ul class="dn">
+                    <li><div data-href="#"><i class="fas fa-clone"></i>Первый подраздел</div></li>
+                    <li id="n1_1_l" class="node"><span data-href="#"><i id="n1_1_i" class="fas fa-caret-right"></i><i class="fas fa-box"></i>Второй подраздел</span>
+                    <ul class="dn">
+                        <li><div data-href="#"><i class="fas fa-clone"></i>Первый подраздел</div></li>
+                        <li><div data-href="#"><i class="fas fa-clone"></i>Второй подраздел</div></li>
+                        <li><div data-href="#"><i class="fas fa-clone"></i>Третий подраздел</div></li>    
+                    </ul>
+                    </li>
+                    <li><div data-href="#"><i class="fas fa-clone"></i>Третий подраздел</div></li>
+		</ul>
+                </li>
+                <li id="n2_l" class="node"><span data-href="#"><i id="n2_i" class="fas fa-caret-right"></i><i class="fas fa-box"></i>Node 2</span>
+                <ul class="dn">
+                    <li><div data-href="#"><i class="fab fa-buffer"></i>Первый подраздел</div></li>
+                    <li><div data-href="#"><i class="fab fa-buffer"></i>Второй подраздел</div></li>
+                    <li><div data-href="#"><i class="fab fa-buffer"></i>Третий подраздел</div></li>
+		</ul>
+                </li>
+                <li id="n3_l" class="node"><span data-href="#"><i id="n3_i" class="fas fa-caret-right"></i><i class="fas fa-box"></i>Ресурсы</span>
+                    <ul class="dn">
+                    <li><div data-href="/resources/fonts/icommon/demo.html"><i class="fas fa-book"></i>Icommon fonts icons demo</div></li>
+                    <li><div data-href="#"><i class="fas fa-book"></i>Второй подраздел</div></li>
+                    <li><div data-href="#"><i class="fas fa-book"></i>Третий подраздел</div></li>
+		</ul>
+                </li>    
+            </ul>
+          </nav>
+          </div>
+          <div id="center_col" class="f_col">
+              <header>
+              <span class='link' onClick="open_modal('err_alert', '#?w=85%&h=85%', 'Длинный текст')">Бета-версия всплывающего окна</span>
+              </header>
+              <div id="main_content">
+                  <div id="f1" class="flow_container">F1</div>
+                  <div id="f2" class="flow_container">F2</div>
+                  <div id="f3" class="flow_container">F3</div>
+                  <div id="f4" class="flow_container">F4</div>
+                  <div id="f5" class="flow_container">F5</div>
+              </div>          
+          </div>
+          <div id="right_col" class="f_col">Right_col</div>
+      </main>
+      <footer>
+          <nav>Footer menu</nav>
+      </footer>
+        
+        
+        <script>
+            let arrow_click = false;
+                    
+            //Обработка раскрытия/скрытия уровня меню
+            function m_n(event) {
+
+                arrow_click = true; //Устанавливаем блокировку для функции обработки собития клика на псевдоссылке data-href
+                
+                //alert(event.currentTarget);
+                //получаем id элемента на котором произошло событие
+                let id = event.currentTarget.id;
+                //Извлекаем "корень" ноды        
+                let n = id.match(/^(.+)_[^_]+$/i);
+                //Получаем 
+                let e = document.getElementById(id);
+                //alert(e.getAttribute('class'));
+                let ul = document.querySelector('#'+n[1]+'_l > ul');
+
+                if( e.getAttribute('class') == "fas fa-caret-down") {
+                    e.setAttribute('class', "fas fa-caret-right");
+                    ul.setAttribute('class', 'dn');
+                } else {
+                    e.setAttribute('class', "fas fa-caret-down");
+                    ul.setAttribute('class', '');
+                }
+                
+
+            }
+            
+            //Привязываем события к кликам на пунктах меню
+            
+            //n1_i.addEventListener("click", m_n);
+            //n1_1_i.addEventListener("click", m_n);
+            //n2_i.addEventListener("click", m_n);
+            //n3_i.addEventListener("click", m_n);
+            
+            // Обработка клика на псевдоссылке data-href c_h = click on href
+            function c_h(event) {
+                if( !arrow_click ) {
+                    //Снимаем атрибут selected у выделенного элемента
+                    $('.tree_menu div.selected, .tree_menu span.selected').removeAttr('class');
+                    event.currentTarget.setAttribute('class', 'selected');
+                    //alert(event.currentTarget);
+                }
+                arrow_click = false;
+            }
+            
+            $('.tree_menu li span > i').click(m_n);
+            
+            /*$('.tree_menu a').click(c_a);*/
+            
+            $('.tree_menu div[data-href]').click(c_h);
+            $('.tree_menu span[data-href]').click(c_h);
+    
+            //Запускаем сплитер
+            Split(['#left_col', '#center_col', '#right_col'], {
+                sizes: [15, 70, 15],    
+                gutter: function (index, direction) {
+                    var gutter = document.createElement('div')
+                    gutter.className = 'gutter gutter-' + direction
+                    //gutter.style.height = '185px'
+                    return gutter
+                },
+                gutterSize: 2
+            });
+     
+             
+        </script>
+        
+    </div>
+</body>
+</html>

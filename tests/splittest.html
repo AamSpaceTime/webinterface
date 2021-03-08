@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            body {
+                background-color: #404040;
+                color: #fefefe;
+                font-size: 12px;
+                padding:0px;
+                margin:0px;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+            }
+            
+            header, footer {
+                flex:none;
+                padding:5px;
+                width: 100%;
+                min-width: 300px;
+            }
+            
+            
+            .split, .gutter.gutter-horizontal {
+                /*float: left;*/
+                /*flex:  1 1 100px;*/
+            }
+            
+
+
+            .gutter.gutter-horizontal {
+                cursor: ew-resize;
+                background-color: #eee;
+                min-height: 20px;
+                height: 100%;
+            }
+            
+            main {
+                flex:auto;             
+            }
+            
+                        #main {
+                border-top:1px #eee solid;
+                border-bottom:1px #eee solid;
+
+                 flex-direction: row; 
+            }
+            
+            
+        </style>
+        <script src="https://unpkg.com/split.js/dist/split.min.js"></script>
+    </head>
+    <body>
+        <header>
+        <nav id="heaner_menu">Header menu</nav>
+        </header>
+        <main>
+        <div id="main">
+            <div id="left_menu" class="split">
+                <nav style="padding:10px;">Left_menu</nav></div>
+            <div id="main_content" class="split">
+            <div>Main_content</div></div>
+        </div>
+        </main>
+        <footer>
+        <nav id="footer_menu">Footer menu</nav>
+        </footer>
+
+        
+        <script>
+            /*
+            Split(['#left_menu', '#main_content'], {
+                sizes: [25, 75],    
+                gutter: function (index, direction) {
+                    var gutter = document.createElement('div')
+                    gutter.className = 'gutter gutter-' + direction
+                    gutter.style.height = '185px'
+                    return gutter
+                },
+                gutterSize: 2
+            });
+     
+             */
+        </script>
+    </body>
+</html>
