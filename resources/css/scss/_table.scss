@@ -1,0 +1,53 @@
+//Стили таблиц
+/*
+    Created on : 10 мар. 2021 г., 14:19:27
+    Author     : andym
+*/
+
+@import "colors";
+
+$b_style: $c_g_bg_h 1px solid;
+
+.simple_table {
+    width: 100%;
+    border-spacing:0px;   
+    
+    
+    td {       
+        border-bottom: $b_style;
+        border-right: $b_style;
+        border-spacing:0px;
+        padding: 5px;
+    }
+    
+    th {
+        background-color: $c_g_bg_h;
+        color: $c_g_t;
+        font-weight: bold;
+        text-align: center;
+        border-spacing:0px;
+        padding: 5px;
+    }
+    
+    tr td:first-child {
+        border-left: $b_style;
+    }
+    
+    tr:hover {
+        background-color: $c_g_t;
+        color: $c_g_bg_h;
+    }
+}
+
+.only_bottom_border {
+    
+    tr td:first-child {
+        border-left:none;
+    }
+    
+    td {
+        border:none;
+        border-bottom: $b_style;
+    }
+    
+}

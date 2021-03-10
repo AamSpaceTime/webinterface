@@ -1,4 +1,4 @@
-//Обработка раскрытия/скрытия уровня меню
+//Обработка раскрытия/скрытия уровня меню m_n = menu _ node
 function m_n(event) {
 
     arrow_click = true; //Устанавливаем блокировку для функции обработки собития клика на псевдоссылке data-href
@@ -43,6 +43,33 @@ function c_h(event) {
 }
 
 let arrow_click = false;
+//Создаем объект, который будет хранить состояние приложения
+let App = {
+    "Modal": {
+        from_s:"",
+        to_s:""
+    }
+};
+
+//Открываем модальное окно с содержимым из элемента с некоторым ID
+function ContentToModal(from_s) {
+    open_modal('err_alert', '#?w=85%&h=85%', $(from_s).html());
+    $(from_s).html("");
+    App.Modal.from_s = from_s;
+    App.Modal.to_s = '#err_alert';
+}
+
+function ModalToContent(to_s) {
+    if( to_s === undefined ) {
+        to_s = App.Modal.to_s;
+    }
+    if(to_s !== undefined ) {
+        $(App.Modal.from_s).html($(to_s).html());
+        $(App.Modal.to_s).html(""); 
+        App.Modal.from_s = "";
+        App.Modal.to_s = '';
+    }
+}
 
 //Ставим условие на выполнение кода после загрузки страницы
 $(document).ready(function() {

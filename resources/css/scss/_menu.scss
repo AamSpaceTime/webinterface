@@ -56,8 +56,8 @@ li.node li.node {
 }
 
 .selected {
-    background-color: #3366ff;
-    color: #ededed;
+    background-color: $c_g_bg_b;
+    color: $c_g_t_l;
     cursor: pointer;
 }
   
@@ -76,7 +76,7 @@ div[data-href] {
     &:not([class]):hover {
         color: $c_g_t_l;
         cursor:pointer;
-        background-color: #606060;        
+        background-color: $c_g_bg_h;        
     }
 }
 

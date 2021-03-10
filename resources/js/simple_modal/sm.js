@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     //When you click on a link with class of poplight and the href starts with a #
     $('a.poplight[href^=#]').click( function() {
-	    open_modal($(this).attr('rel'), $(this).attr('href'), '');
+	open_modal($(this).attr('rel'), $(this).attr('href'), '');
         return false;
     });
 
@@ -10,9 +10,9 @@ $(document).ready(function(){
     //Close Popups and Fade Layer
     $('a.close, #fade').live('click', function() { //When clicking on the close or fade layer...
         $('#fade , .popup_block').fadeOut(function() {
-            $('#fade, a.close').remove();
+            $('#fade, div.btn_close').remove();
     }); //fade them both out
-
+        ModalToContent();
         return false;
     });
 

@@ -74,9 +74,9 @@ span .click, span [onclick], div .click, div [onclick] {
 /* --- blocks --- */
 .flow_container {
   flex: 1 1 110px;
-  margin: 5px;
+  margin: 0;
   padding: 5px;
-  border: #888 1px solid;
+  border: #606060 1px solid;
   min-width: 200px;
   min-height: 200px; }
   .flow_container:hover {
@@ -93,8 +93,7 @@ span .click, span [onclick], div .click, div [onclick] {
   overflow: hidden; }
 
 .fc_body {
-  height: calc(100% - 25px);
-  background-color: #fff; }
+  height: calc(100% - 25px); }
 
 /* --- common style --- */
 .dn {
@@ -155,20 +154,15 @@ span .click, span [onclick], div .click, div [onclick] {
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px; }
-
-.btn_close {
-  float: right;
-  margin: -5px -5px 0 0;
-  font-size: 14px; }
-
-.btn_close a {
-  text-decoration: underline; }
+  .popup_block .btn_close {
+    float: right;
+    margin: -5px -5px 5px 0;
+    font-size: 14px; }
+    .popup_block .btn_close a {
+      text-decoration: underline; }
 
 /*--Фиксированное позиционирование для тупого IE6--*/
-html #fade {
-  position: absolute; }
-
-html .popup_block {
+html #fade, html .popup_block {
   position: absolute; }
 
 #fade {
@@ -189,7 +183,7 @@ html .popup_block {
   font-size: large;
   padding-right: 5px; }
 
-/* --- Imports --- */
+/* --- Menu --- */
 /* --- Three menu --- */
 /*
     Created on : 9 мар. 2021 г., 9:41:25
@@ -230,7 +224,7 @@ html .popup_block {
 
 .tree_menu .selected {
   background-color: #3366ff;
-  color: #ededed;
+  color: #fff;
   cursor: pointer; }
 
 .tree_menu .selected span,
@@ -249,3 +243,67 @@ html .popup_block {
 
 .tree_menu i {
   display: inline-block; }
+
+/* --- Table --- */
+/*
+    Created on : 10 мар. 2021 г., 14:19:27
+    Author     : andym
+*/
+/*
+    Created on : 9 мар. 2021 г., 9:41:25
+    Author     : andym
+*/
+.simple_table {
+  width: 100%;
+  border-spacing: 0px; }
+  .simple_table td {
+    border-bottom: #606060 1px solid;
+    border-right: #606060 1px solid;
+    border-spacing: 0px;
+    padding: 5px; }
+  .simple_table th {
+    background-color: #606060;
+    color: #aeaeae;
+    font-weight: bold;
+    text-align: center;
+    border-spacing: 0px;
+    padding: 5px; }
+  .simple_table tr td:first-child {
+    border-left: #606060 1px solid; }
+  .simple_table tr:hover {
+    background-color: #aeaeae;
+    color: #606060; }
+
+.only_bottom_border tr td:first-child {
+  border-left: none; }
+
+.only_bottom_border td {
+  border: none;
+  border-bottom: #606060 1px solid; }
+
+/* --- Form --- */
+/*
+    Created on : 9 мар. 2021 г., 9:41:25
+    Author     : andym
+*/
+fieldset {
+  border-width: 1px; }
+
+input[type="text"], input[type="password"] {
+  margin: 0 10px 0 10px;
+  border-color: #606060;
+  border-width: 1px;
+  background-color: #404040;
+  color: #aeaeae;
+  padding: 5px 10px 5px 10px;
+  border-style: dashed;
+  border-radius: 5px; }
+  input[type="text"]:hover, input[type="password"]:hover {
+    border-color: #3366ff; }
+  input[type="text"]:focus, input[type="text"]:active, input[type="password"]:focus, input[type="password"]:active {
+    background-color: #fff;
+    color: #3366ff;
+    outline: 0;
+    outline-offset: 0;
+    border-style: solid;
+    border-color: #606060; }

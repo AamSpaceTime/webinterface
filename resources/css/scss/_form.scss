@@ -1,0 +1,33 @@
+//Стили формы
+
+@import "colors";
+
+fieldset {
+    //border-color: $c_g_bg_h;
+    border-width: 1px;
+}
+
+input[type="text"], input[type="password"] {
+    margin: 0 10px 0 10px;
+    border-color: $c_g_bg_h;
+    border-width: 1px;
+    background-color: $с_g_bg;
+    color: $c_g_t;
+    padding: 5px 10px 5px 10px;
+    border-style: dashed;
+    border-radius: 5px;
+    
+    &:hover {
+        border-color: $c_g_a_h;
+    }
+    
+    &:focus, &:active {
+        background-color: $c_g_a;
+        color: $c_g_a_h;
+        outline: 0;
+        outline-offset: 0;
+        border-style: solid;
+        border-color: $c_g_bg_h;
+    }   
+    
+}
