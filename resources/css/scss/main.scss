@@ -1,0 +1,179 @@
+//Служебные импорты
+
+@import "_colors.scss";
+
+/* --- Global Stucture ---*/
+
+html, body, .flex_main_container{
+    height: 100%;
+    margin: 0;
+    background-color: $с_g_bg;
+    color: $c_g_t;
+    font-size: 12px;
+    min-width: 300px;
+    font-family: Tahoma;
+}
+
+header, footer {
+    flex:none;
+    padding: 5px;
+}
+
+#center_col header {
+    padding:0px;
+}
+
+.flex_main_container {
+    display:flex;
+    flex-flow: column nowrap;
+}
+
+main {
+    flex:auto;
+    overflow:auto;
+    display:flex;
+    border-top:1px $c_g_br solid;
+    border-bottom:1px $c_g_br solid;
+}
+
+.f_col {
+    padding:5px; 
+}
+
+#left_col, #right_col {
+    min-width: 110px;
+    overflow: hidden;
+}
+
+#right_col {
+    flex:  1 1 110px;  
+}
+
+#center_col {
+    min-width: 40%;
+    overflow: auto;
+}
+
+.gutter.gutter-horizontal {
+    cursor: ew-resize;
+    padding:1px;
+    background-color: $c_g_br;  
+    &:hover {
+        background-color: $c_g_t;
+    }
+}
+
+#main_content {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+nav {
+    color:#aeaeae;
+    margin-right: 5px;
+}
+
+/* --- link styles --- */
+
+a {
+    color:$c_g_a;
+    &:hover {
+        color:$c_g_a_h;
+    }
+}
+
+span, div {
+    .click, [onclick] {
+        cursor: pointer;
+        &:hover { color:$c_g_a_h; }
+    }
+}
+
+/* --- blocks --- */
+
+.flow_container {
+    flex:  1 1 110px;    
+    margin: 5px;
+    padding: 5px;
+    border: $c_g_br 1px solid;
+    min-width: 200px;
+    min-height: 200px;
+    
+    &:hover {border-color: $c_g_a_h}
+}
+
+#f3 {
+    flex-basis: 100%;
+    width: 100%;    
+}
+
+.fc_header {
+    width: 100%;
+    padding-bottom: 5px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.fc_body {
+    height: calc(100% - 25px);
+    background-color: $с_g_bg_l;
+}
+
+/* --- common style --- */
+
+.dn {
+    display:none;
+}
+
+.ra {
+    float: right;
+    i.fa, i.fas {
+        padding: 0;
+    }
+}
+
+
+/* --- icons --- */
+
+.ico {
+    padding:2px;
+    border-radius: 2px;
+}
+
+.invert {
+    background-color: $c_g_br; 
+    i.fa, i.fas {
+        color: $с_g_bg;
+        
+        &:hover { background-color: $с_g_bg_l; }
+
+    }
+    &:hover { background-color: $с_g_bg_l; }
+}
+
+/* --- modal window ---*/
+
+@import "../../js/simple_modal/sm.scss";
+
+#fade {
+    display: none;
+    background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .30;
+    z-index: 9999;
+}
+
+/* --- Icons --- */
+.fa,
+.fab,
+.fas {
+    font-size: large;
+    padding-right: 5px;
+}
+
+/* --- Imports --- */
+@import "menu";

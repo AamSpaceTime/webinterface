@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
-
 
 <html>
     <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Web Interface Test</title>
+	<meta name="description" content="Разрабатываем интерфейс для мониторинга и управления удаленными устройствами" />
+	<meta name="robots" content="noindex, nofollow" />
+	<link rel="canonical" href="http://webinterface.ru/" />
+        
+        <!-- load all styles //-->
         <link href="/resources/css/main.css" rel="stylesheet">
-        <link href="/resources/css/menu.css" rel="stylesheet">
-        <link href="/resources/js/simple_modal/sm.css" rel="stylesheet">
         <link href="/resources/fonts/fontawesome-free-5.15.2-web/css/all.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="../resources/css/main.css" type="text/css"/>
- <!--load all styles -->
+        <!-- load all js //-->
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
         <script src="/resources/js/split.js@1.6.2/split.min.js"></script>
         <script defer src="/resources/js/simple_modal/sm.js"></script>
+        <script defer src="/resources/js/main.js"></script>
     </head>
     
     <body>
@@ -31,7 +30,7 @@ and open the template in the editor.
           <div id="left_col" class="f_col">
           <nav>
             <ul class="tree_menu">
-                <li id="n1_l" class="node"><span data-href="#" class="selected"><i id="n1_i" class="fas fa-caret-right"></i><i class="fas fa-box"></i>Node 1</span>
+                <li id="n1_l" class="node"><span data-href="#"><i id="n1_i" class="fas fa-caret-right"></i><i class="fas fa-box"></i>Node 1</span>
 		<ul class="dn">
                     <li><div data-href="#"><i class="fas fa-clone"></i>Первый подраздел</div></li>
                     <li id="n1_1_l" class="node"><span data-href="#"><i id="n1_1_i" class="fas fa-caret-right"></i><i class="fas fa-box"></i>Второй подраздел</span>
@@ -63,10 +62,13 @@ and open the template in the editor.
           </div>
           <div id="center_col" class="f_col">
               <header>
-              <span class='link' onClick="open_modal('err_alert', '#?w=85%&h=85%', 'Длинный текст')">Бета-версия всплывающего окна</span>
+              H1
               </header>
               <div id="main_content">
-                  <div id="f1" class="flow_container">F1</div>
+                  <div id="f1" class="flow_container">
+                      <div class="fc_header"><i class="fas fa-clone"></i>Form 1<span class="ico ra click invert" onClick="open_modal('err_alert', '#?w=85%&h=85%', 'Длинный текст')"><i class="fas fa-expand-arrows-alt"></i></span></div>
+                      <div class="fc_body"><div style="width:100%; height: 100%; background-color: #606060;">Test</div></div>
+                  </div>
                   <div id="f2" class="flow_container">F2</div>
                   <div id="f3" class="flow_container">F3</div>
                   <div id="f4" class="flow_container">F4</div>
@@ -81,72 +83,7 @@ and open the template in the editor.
         
         
         <script>
-            let arrow_click = false;
-                    
-            //Обработка раскрытия/скрытия уровня меню
-            function m_n(event) {
 
-                arrow_click = true; //Устанавливаем блокировку для функции обработки собития клика на псевдоссылке data-href
-                
-                //alert(event.currentTarget);
-                //получаем id элемента на котором произошло событие
-                let id = event.currentTarget.id;
-                //Извлекаем "корень" ноды        
-                let n = id.match(/^(.+)_[^_]+$/i);
-                //Получаем 
-                let e = document.getElementById(id);
-                //alert(e.getAttribute('class'));
-                let ul = document.querySelector('#'+n[1]+'_l > ul');
-
-                if( e.getAttribute('class') == "fas fa-caret-down") {
-                    e.setAttribute('class', "fas fa-caret-right");
-                    ul.setAttribute('class', 'dn');
-                } else {
-                    e.setAttribute('class', "fas fa-caret-down");
-                    ul.setAttribute('class', '');
-                }
-                
-
-            }
-            
-            //Привязываем события к кликам на пунктах меню
-            
-            //n1_i.addEventListener("click", m_n);
-            //n1_1_i.addEventListener("click", m_n);
-            //n2_i.addEventListener("click", m_n);
-            //n3_i.addEventListener("click", m_n);
-            
-            // Обработка клика на псевдоссылке data-href c_h = click on href
-            function c_h(event) {
-                if( !arrow_click ) {
-                    //Снимаем атрибут selected у выделенного элемента
-                    $('.tree_menu div.selected, .tree_menu span.selected').removeAttr('class');
-                    event.currentTarget.setAttribute('class', 'selected');
-                    //alert(event.currentTarget);
-                }
-                arrow_click = false;
-            }
-            
-            $('.tree_menu li span > i').click(m_n);
-            
-            /*$('.tree_menu a').click(c_a);*/
-            
-            $('.tree_menu div[data-href]').click(c_h);
-            $('.tree_menu span[data-href]').click(c_h);
-    
-            //Запускаем сплитер
-            Split(['#left_col', '#center_col', '#right_col'], {
-                sizes: [15, 70, 15],    
-                gutter: function (index, direction) {
-                    var gutter = document.createElement('div')
-                    gutter.className = 'gutter gutter-' + direction
-                    //gutter.style.height = '185px'
-                    return gutter
-                },
-                gutterSize: 2
-            });
-     
-             
         </script>
         
     </div>

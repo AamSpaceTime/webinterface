@@ -1,0 +1,87 @@
+/* --- Three menu --- */
+
+@import "_colors.scss";
+
+.tree_menu ul, ul.tree_menu {
+  margin: 0;
+  padding: 0;
+}
+
+// Nesting 
+.tree_menu {
+    
+// Global variables
+$otstup: 20px;
+    
+li {
+    list-style-type: none;
+}
+
+// Selector Lists
+li {
+    > div, > span { 
+    display:inline-block;
+    padding: 3px;
+    border-radius: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    }
+}
+
+.fa,
+.fab,
+.fas {  
+    &:hover {
+        color: $c_g_t_l;
+        cursor: pointer;    
+    }
+}
+
+li > span { 
+    width: 100%;
+}
+
+// не срабатывает замена 20px на $otstup внитури calc
+li > div { 
+    width: calc(100% - 20px );
+}
+
+li.node > ul > li > div {
+    padding-left: $otstup;  
+}
+
+li.node li.node {
+    margin-left:$otstup;
+}
+
+.selected {
+    background-color: #3366ff;
+    color: #ededed;
+    cursor: pointer;
+}
+  
+.selected span,
+.selected div {
+    color: $c_g_t_l;
+}
+
+// Nesting
+
+span[data-href],
+div[data-href] {
+    vertical-align: 2px;
+    text-decoration: none;
+    
+    &:not([class]):hover {
+        color: $c_g_t_l;
+        cursor:pointer;
+        background-color: #606060;        
+    }
+}
+
+i {
+    display: inline-block;
+}
+
+}

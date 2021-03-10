@@ -1,111 +1,251 @@
+@charset "UTF-8";
 /*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 24 февр. 2021 г., 18:03:57
+    Created on : 9 мар. 2021 г., 9:41:25
     Author     : andym
 */
-
-html, body, .flex_main_container{
-    height: 100%;
-    background: red;
-    margin: 0;
-    background-color: #404040;
-    color: #fefefe;
-    font-size: 12px;
-    min-width: 300px;
-    font-family: Tahoma;
-}
+/* --- Global Stucture ---*/
+html, body, .flex_main_container {
+  height: 100%;
+  margin: 0;
+  background-color: #404040;
+  color: #aeaeae;
+  font-size: 12px;
+  min-width: 300px;
+  font-family: Tahoma; }
 
 header, footer {
-    flex:none;
-    padding: 5px;
-}
+  flex: none;
+  padding: 5px; }
 
 #center_col header {
-    padding:0px;
-}
+  padding: 0px; }
 
 .flex_main_container {
-    display:flex;
-    flex-flow: column nowrap;
-}
+  display: flex;
+  flex-flow: column nowrap; }
 
 main {
-    flex:auto;
-    overflow:auto;
-    display:flex;
-    border-top:1px #888 solid;
-    border-bottom:1px #888 solid;
-}
+  flex: auto;
+  overflow: auto;
+  display: flex;
+  border-top: 1px #888 solid;
+  border-bottom: 1px #888 solid; }
 
 .f_col {
-    padding:5px; 
-}
+  padding: 5px; }
 
 #left_col, #right_col {
-    min-width: 110px;
-    overflow: hidden;
-}
+  min-width: 110px;
+  overflow: hidden; }
 
 #right_col {
-    flex:  1 1 110px;  
-}
+  flex: 1 1 110px; }
 
 #center_col {
-    min-width: 40%;
-    overflow: auto;
-}
+  min-width: 40%;
+  overflow: auto; }
 
 .gutter.gutter-horizontal {
-    cursor: ew-resize;
-    padding:1px;
-    background-color: #888;
-}
-
-.gutter.gutter-horizontal:hover {
-    background-color: #aeaeae;
-}
+  cursor: ew-resize;
+  padding: 1px;
+  background-color: #888; }
+  .gutter.gutter-horizontal:hover {
+    background-color: #aeaeae; }
 
 #main_content {
-    display:flex;
-    flex-wrap: wrap;
-}
+  display: flex;
+  flex-wrap: wrap; }
 
+nav {
+  color: #aeaeae;
+  margin-right: 5px; }
+
+/* --- link styles --- */
+a {
+  color: #fff; }
+  a:hover {
+    color: #3366ff; }
+
+span .click, span [onclick], div .click, div [onclick] {
+  cursor: pointer; }
+  span .click:hover, span [onclick]:hover, div .click:hover, div [onclick]:hover {
+    color: #3366ff; }
+
+/* --- blocks --- */
 .flow_container {
-    flex:  1 1 110px;    
-    margin: 5px;
-    padding: 5px;
-    border: #777777 1px solid;
-    min-width: 200px;
-    min-height: 200px;
-}
-
-.flow_container:hover {border-color: #555588}
-
+  flex: 1 1 110px;
+  margin: 5px;
+  padding: 5px;
+  border: #888 1px solid;
+  min-width: 200px;
+  min-height: 200px; }
+  .flow_container:hover {
+    border-color: #3366ff; }
 
 #f3 {
-    flex-basis: 100%;
-    width: 100%;    
-}
+  flex-basis: 100%;
+  width: 100%; }
 
+.fc_header {
+  width: 100%;
+  padding-bottom: 5px;
+  height: 20px;
+  overflow: hidden; }
+
+.fc_body {
+  height: calc(100% - 25px);
+  background-color: #fff; }
+
+/* --- common style --- */
 .dn {
-    display:none;
-}
+  display: none; }
 
+.ra {
+  float: right; }
+  .ra i.fa, .ra i.fas {
+    padding: 0; }
 
+/* --- icons --- */
+.ico {
+  padding: 2px;
+  border-radius: 2px; }
+
+.invert {
+  background-color: #888; }
+  .invert i.fa, .invert i.fas {
+    color: #404040; }
+    .invert i.fa:hover, .invert i.fas:hover {
+      background-color: #fff; }
+  .invert:hover {
+    background-color: #fff; }
+
+/* --- modal window ---*/
+/* --- Модальное окно --- */
+/*
+    Created on : 9 мар. 2021 г., 9:41:25
+    Author     : andym
+*/
+#fade {
+  /*--Прозрачный слой фона--*/
+  display: none;
+  /*--по умолчанию скрыты--*/
+  background: #404040;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .3;
+  z-index: 9999; }
+
+.popup_block {
+  display: none;
+  /*--по умолчанию скрыты--*/
+  background-color: #404040;
+  padding: 15px;
+  top: 50%;
+  left: 50%;
+  overflow: auto;
+  z-index: 99999;
+  /*--CSS3 Тени для Блока--*/
+  -webkit-box-shadow: 0px 0px 5px #404040;
+  -moz-box-shadow: 0px 0px 5px #404040;
+  box-shadow: 0px 0px 5px #404040;
+  /*--CSS3 Закругленные углы--*/
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px; }
+
+.btn_close {
+  float: right;
+  margin: -5px -5px 0 0;
+  font-size: 14px; }
+
+.btn_close a {
+  text-decoration: underline; }
+
+/*--Фиксированное позиционирование для тупого IE6--*/
+html #fade {
+  position: absolute; }
+
+html .popup_block {
+  position: absolute; }
 
 #fade {
-    display: none;
-    background: #000;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    opacity: .30;
-    z-index: 9999;
-}
+  display: none;
+  background: #000;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .30;
+  z-index: 9999; }
 
+/* --- Icons --- */
+.fa,
+.fab,
+.fas {
+  font-size: large;
+  padding-right: 5px; }
+
+/* --- Imports --- */
+/* --- Three menu --- */
+/*
+    Created on : 9 мар. 2021 г., 9:41:25
+    Author     : andym
+*/
+.tree_menu ul, ul.tree_menu {
+  margin: 0;
+  padding: 0; }
+
+.tree_menu li {
+  list-style-type: none; }
+
+.tree_menu li > div, .tree_menu li > span {
+  display: inline-block;
+  padding: 3px;
+  border-radius: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.tree_menu .fa:hover,
+.tree_menu .fab:hover,
+.tree_menu .fas:hover {
+  color: #fff;
+  cursor: pointer; }
+
+.tree_menu li > span {
+  width: 100%; }
+
+.tree_menu li > div {
+  width: calc(100% - 20px); }
+
+.tree_menu li.node > ul > li > div {
+  padding-left: 20px; }
+
+.tree_menu li.node li.node {
+  margin-left: 20px; }
+
+.tree_menu .selected {
+  background-color: #3366ff;
+  color: #ededed;
+  cursor: pointer; }
+
+.tree_menu .selected span,
+.tree_menu .selected div {
+  color: #fff; }
+
+.tree_menu span[data-href],
+.tree_menu div[data-href] {
+  vertical-align: 2px;
+  text-decoration: none; }
+  .tree_menu span[data-href]:not([class]):hover,
+  .tree_menu div[data-href]:not([class]):hover {
+    color: #fff;
+    cursor: pointer;
+    background-color: #606060; }
+
+.tree_menu i {
+  display: inline-block; }

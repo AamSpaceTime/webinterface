@@ -1,0 +1,64 @@
+/* --- Three menu --- */
+/*
+    Created on : 9 мар. 2021 г., 9:41:25
+    Author     : andym
+*/
+.tree_menu ul, ul.tree_menu {
+  margin: 0;
+  padding: 0; }
+
+.tree_menu li {
+  list-style-type: none; }
+
+.tree_menu li > div, .tree_menu li > span {
+  display: inline-block;
+  padding: 3px;
+  border-radius: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.tree_menu li > span {
+  width: 100%; }
+
+.tree_menu li > div {
+  width: calc(100% - 20px); }
+
+.tree_menu li.node > ul > li > div {
+  padding-left: 20px; }
+
+.tree_menu li.node li.node {
+  margin-left: 20px; }
+
+.tree_menu .selected {
+  background-color: #3366ff;
+  color: #ededed;
+  cursor: pointer; }
+
+.tree_menu .selected span,
+.tree_menu .selected div {
+  color: #fff; }
+
+.tree_menu .fa,
+.tree_menu .fab,
+.tree_menu .fas {
+  font-size: large;
+  padding-right: 5px; }
+  .tree_menu .fa:hover,
+  .tree_menu .fab:hover,
+  .tree_menu .fas:hover {
+    color: #fff;
+    cursor: pointer; }
+
+.tree_menu span[data-href],
+.tree_menu div[data-href] {
+  vertical-align: 2px;
+  text-decoration: none; }
+  .tree_menu span[data-href]:not([class]):hover,
+  .tree_menu div[data-href]:not([class]):hover {
+    color: #fff;
+    cursor: pointer;
+    background-color: #606060; }
+
+.tree_menu i {
+  display: inline-block; }
