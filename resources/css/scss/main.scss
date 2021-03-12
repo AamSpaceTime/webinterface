@@ -150,6 +150,13 @@ span, div {
     &:hover { background-color: $с_g_bg_l; }
 }
 
+.fa,
+.fab,
+.fas {
+    font-size: large;
+    padding-right: 5px;
+}
+
 /* --- modal window ---*/
 
 @import "../../js/simple_modal/sm.scss";
@@ -166,13 +173,6 @@ span, div {
     z-index: 9999;
 }
 
-/* --- Icons --- */
-.fa,
-.fab,
-.fas {
-    font-size: large;
-    padding-right: 5px;
-}
 
 /* --- Menu --- */
 @import "menu";
