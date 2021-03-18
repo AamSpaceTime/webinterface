@@ -24,13 +24,6 @@ function m_n(event) {
 
 }
 
-//Привязываем события к кликам на пунктах меню
-
-//n1_i.addEventListener("click", m_n);
-//n1_1_i.addEventListener("click", m_n);
-//n2_i.addEventListener("click", m_n);
-//n3_i.addEventListener("click", m_n);
-
 // Обработка клика на псевдоссылке data-href c_h = click on href
 function c_h(event) {
     if( !arrow_click ) {
@@ -69,6 +62,38 @@ function ModalToContent(to_s) {
         App.Modal.from_s = "";
         App.Modal.to_s = '';
     }
+}
+
+//Общая функция отправки запроса по Ajax и получения результата в заданный div контейнер
+function getContent_putNode(Params) { 
+
+    //Получаем контент и размещаем его в заданном контейнере 
+    let Result = {
+        msg: "",
+        success: false
+    }; 
+
+    //Отправка ajax запроса с помощью метода ajax библиотеки jQuery 
+    $.ajax({ 
+        type: "GET", //тип запроса — Get. Параметры будут переданы в URL 
+        url: Params.url, 
+        data: Params.data, 
+        async: Params.async, 
+
+        success: function(msg) { 
+            Result.msg = msg; 
+            if( Params.selector != "" && Params.selector != undefined ) 
+            { $(Params.selector).html($(Params.selector).html()+Result.msg); }
+            Result.success = true;
+        }, 
+        error: function(jqXHR, textStatus, errorThrown) { 
+            Result.msg = jqXHR.getAllResponseHeaders()+"<hr>"+textStatus+"<hr>"+errorThrown; 
+            if( Params.selector != "" && Params.selector != undefined ) 
+            { $(Params.selector).html(Result.msg); }         
+        }
+    }); 
+
+    return Result; 
 }
 
 //Ставим условие на выполнение кода после загрузки страницы

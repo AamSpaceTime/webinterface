@@ -1,319 +1,114 @@
 <?
-echo "<pre>";
-print_r($_GET);
-echo "</pre>";
-
+require_once($_SERVER["DOCUMENT_ROOT"].'/services/templates/main/header.php');
 ?>
-
-<html>
-<head>
-    <style>
-        #main_cont {
-            display:flex;
-            flex-direction: row;
-            background-color: #ededed;
-            padding: 20px;
-            height: auto;
-            min-width: 700px;
-        }
-        
-        #main_cont div {
-            margin:10px;
-            background-color: #ed0000;
-            border-radius: 10px;
-            padding: 10px;
-            flex:  1 1 100px;
-        }
-        
-        div#f1 {
-    flex: 0 0 180px;
-        }
-        div#f3 {
-    flex: 0 0 180px;
-        }
-         div#f2 {
-    min-width: 200px;
-        }        
-        
-.grid, .grid__item {
-    border: 1px solid #e7e7e7;
-}
-.flexy-nav, .flexy-nav__items, .grid__row, .holy-grail, .holy-grail__body {
-}
-.banner, .user {
-    align-items: center;
-}
-.component__section {
-    margin: 0 24px 48px;
-}
-.component__section:last-child {
-    margin-bottom: 0;
-}
-.component__sub-title {
-    color: #818181;
-    font-size: 22px;
-    font-weight: 300;
-    margin-bottom: 12px;
-    text-align: center;
-}
-.grid__row {
-    display: flex;
-    flex-direction: column;
-}
-.grid__item {
-    flex: 1 1 0;
-    padding: 12px;
-}
-@media all and (min-width: 480px) {
-.grid__row--sm {
-    flex-direction: row;
-}
-}
-@media all and (min-width: 720px) {
-.grid__row--md {
-    flex-direction: row;
-}
-}
-@media all and (min-width: 960px) {
-.grid__row--lg {
-    flex-direction: row;
-}
-}
-.holy-grail {
-    display: flex;
-    flex-direction: column;
-}
-.holy-grail__footer, .holy-grail__header {
-    background-color: #f07850;
-    flex: 0 0 100%;
-    padding: 12px;
-    text-align: center;
-}
-.holy-grail__footer small, .holy-grail__header h1 {
-    color: #fff;
-}
-.holy-grail__body {
-    display: flex;
-    flex-direction: column;
-}
-.holy-grail__sidebar {
-    background-color: #e7e7e7;
-    padding: 12px;
-}
-.holy-grail__sidebar--first {
-    order: 1;
-}
-.holy-grail__sidebar--second {
-    order: 3;
-}
-.holy-grail__content {
-    order: 2;
-    padding: 12px;
-}
-@media all and (min-width: 720px) {
-.holy-grail__body {
-    flex-direction: row;
-}
-.holy-grail__sidebar {
-    flex: 0 0 180px;
-}
-.holy-grail__content {
-    flex: 1 1 0;
-}
-}
-@media all and (min-width: 960px) {
-.holy-grail__sidebar {
-    flex: 0 0 240px;
-}
-}
-button, input {
-    -moz-appearance: none;
-    box-shadow: none;
-    font: inherit;
-}
-button {
-    cursor: pointer;
-}
-.flexy-nav {
-    display: flex;
-    flex-direction: column;
-}
-.flexy-nav__items {
-    display: none;
-    flex: 1 1 0;
-    flex-direction: column;
-    list-style: outside none none;
-    margin: 0 0 4px;
-    padding: 4px;
-    text-align: center;
-}
-.flexy-nav__items--visible {
-    display: flex;
-}
-.flexy-nav__item {
-    background-color: #f1f1f1;
-    border-bottom: 1px solid #e7e7e7;
-}
-.flexy-nav__item:last-child {
-    border-bottom: 0 none;
-}
-.flexy-nav__link {
-    display: block;
-    padding: 8px;
-}
-.flexy-nav__toggle {
-    background-color: #f07850;
-    border: medium none;
-    color: #fff;
-    margin: 0 0 4px;
-    padding: 4px;
-}
-.flexy-nav__toggle:focus, .flexy-nav__toggle:hover {
-    background-color: #c93f11;
-    outline: 0 none;
-}
-.flexy-nav__form {
-    height: 48px;
-}
-.flexy-nav__search {
-    background-color: #fff;
-    border: 2px solid #e7e7e7;
-    color: #6d6d6d;
-    display: block;
-    height: 48px;
-    margin: 0;
-    padding: 0 4px;
-    width: 100%;
-}
-.banner, .user__avatar {
-    background-color: #e7e7e7;
-}
-.flexy-nav__search:focus {
-    border: 2px solid #6d6d6d;
-    outline: 0 none;
-}
-@media all and (min-width: 768px) {
-.flexy-nav, .flexy-nav__items {
-    flex-direction: row;
-}
-.flexy-nav__items {
-    display: flex;
-    height: 48px;
-    margin: 0;
-    padding: 0;
-}
-.flexy-nav__item {
-    border-bottom: medium none;
-    flex: 1 1 0;
-    margin-right: 4px;
-}
-.flexy-nav__link {
-    line-height: 48px;
-    padding: 0;
-}
-.flexy-nav__toggle {
-    display: none;
-}
-.flexy-nav__form {
-    flex: 0 0 auto;
-}
-.flexy-nav__search {
-    transition: width 0.3s ease 0s;
-    width: 240px;
-}
-.flexy-nav__search:focus {
-    width: 360px;
-}
-}
-.user {
-    display: flex;
-    margin: 0 auto 24px;
-    max-width: 960px;
-}
-.banner, .user {
-}
-.user:last-child {
-    margin-bottom: 0;
-}
-.user__avatar {
-    flex: 0 0 96px;
-    height: 96px;
-    width: 96px;
-}
-.user__description {
-    border: 1px solid #e7e7e7;
-    flex: 1 1 0;
-    margin-left: 24px;
-    padding: 12px;
-}
-.user__username {
-    margin: 0 0 12px;
-    padding: 0;
-}
-.user__excerpt {
-    margin: 0;
-}
-.banner {
-    display: flex;
-    height: 180px;
-    justify-content: space-around;
-}
-.banner__content {
-    text-align: center;
-}
-.banner__sub, .banner__title {
-    line-height: 1.5;
-    margin: 0;
-    padding: 0;
-}
-@media all and (min-width: 480px) {
-.banner {
-    height: 240px;
-}
-}
-@media all and (min-width: 768px) {
-.banner {
-    height: 360px;
-}
-}
-@media all and (min-width: 960px) {
-.banner {
-    height: 480px;
-}
-}
-        
-        
-    </style>
-</head>
-<body>
-FlexBox
-<hr>
-<div id="main_cont">
-    <div id="f1">Flex 1</div>
-    <div id="f2">Flex 2<br>a<br>a<br>a<br></div>
-    <div id="f3">Flex 3</div>
-</div>
-
-<div class="holy-grail">
-      <header class="holy-grail__header">
-        <h1>This is the header</h1>
-      </header>
-      <div class="holy-grail__body">
-        <div class="holy-grail__content">
-          <h2>This is the main content</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum sequi nisi aliquam, ipsum tempore illo recusandae. Odit consectetur totam hic eius, commodi molestiae voluptates porro vel laboriosam, tempore, nostrum quis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos mollitia vero facilis, deserunt omnis, fugit quod nam, neque iusto reprehenderit tempora. Atque fuga inventore perferendis harum et culpa repudiandae, laudantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolorum ea at nobis dolores doloremque incidunt voluptate, dignissimos, veniam soluta temporibus sint error odit nesciunt ducimus excepturi quam, itaque eos! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, molestiae, delectus nemo quibusdam odit fugiat velit facilis soluta odio ipsam ullam alias repellat. Ipsam porro voluptate adipisci nihil assumenda, ab.</p>
-        </div>
-        <div class="holy-grail__sidebar holy-grail__sidebar--first">
-          <h4>Sidebar 1</h4>
-        </div>
-        <div class="holy-grail__sidebar holy-grail__sidebar--second">
-          <h4>Sidebar 2</h4>
-        </div>
-      </div>
-      <footer class="holy-grail__footer">
-        <small>This is the footer</small>
-      </footer>
-    </div>
-
-</body>
-</html>
+          <div id="left_col" class="f_col">
+          <nav>
+            <ul class="tree_menu">
+                <li id="n1_l" class="node"><span data-href="#"><i id="n1_i" class="fas fa-caret-right"></i><i class="fas fa-box"></i>Node 1</span>
+		<ul class="dn">
+                    <li><div data-href="#"><i class="fas fa-clone"></i>Первый подраздел</div></li>
+                    <li id="n1_1_l" class="node"><span data-href="#"><i id="n1_1_i" class="fas fa-caret-right"></i><i class="fas fa-box"></i>Второй подраздел</span>
+                    <ul class="dn">
+                        <li><div data-href="#"><i class="fas fa-clone"></i>Первый подраздел</div></li>
+                        <li><div data-href="#"><i class="fas fa-clone"></i>Второй подраздел</div></li>
+                        <li><div data-href="#"><i class="fas fa-clone"></i>Третий подраздел</div></li>    
+                    </ul>
+                    </li>
+                    <li><div data-href="#"><i class="fas fa-clone"></i>Третий подраздел</div></li>
+		</ul>
+                </li>
+                <li id="n2_l" class="node"><span data-href="#"><i id="n2_i" class="fas fa-caret-right"></i><i class="fas fa-box"></i>Node 2</span>
+                <ul class="dn">
+                    <li><div data-href="#"><i class="fab fa-buffer"></i>Первый подраздел</div></li>
+                    <li><div data-href="#"><i class="fab fa-buffer"></i>Второй подраздел</div></li>
+                    <li><div data-href="#"><i class="fab fa-buffer"></i>Третий подраздел</div></li>
+		</ul>
+                </li>
+                <li id="n3_l" class="node"><span data-href="#"><i id="n3_i" class="fas fa-caret-right"></i><i class="fas fa-box"></i>Ресурсы</span>
+                    <ul class="dn">
+                    <li><div data-href="/resources/fonts/icommon/demo.html"><i class="fas fa-book"></i>Icommon fonts icons demo</div></li>
+                    <li><div data-href="#"><i class="fas fa-book"></i>Второй подраздел</div></li>
+                    <li><div data-href="#"><i class="fas fa-book"></i>Третий подраздел</div></li>
+		</ul>
+                </li>    
+            </ul>
+          </nav>
+          </div>
+          <div id="center_col" class="f_col">
+              <header>
+              H1
+              </header>
+              <div id="main_content">
+                  <div id="f1" class="flow_container">
+                      <div class="fc_header"><i class="fas fa-clone"></i>View 1<span class="ico ra click invert" onClick="ContentToModal('#f1 div.fc_body')"><i class="fas fa-expand-arrows-alt"></i></span></div>
+                      <div class="fc_body">
+                          <table class="simple_table" >
+                              <tr>
+                                  <th> Первая </th>
+                                  <th> Вторая </th>
+                              </tr>
+                              
+                              <tr>
+                                  <td>123455</td>
+                                  <td>5465</td>
+                              </tr>
+                              <tr>
+                                  <td>14355</td>
+                                  <td>543465</td>
+                              </tr>
+                              <tr>
+                                  <td>6785</td>
+                                  <td>5675</td>
+                              </tr>
+                          </table>                          
+                      </div>
+                  </div>
+                  <div id="f2" class="flow_container">
+                      <div class="fc_header"><i class="fas fa-clone"></i>Form 1<span class="ico ra click invert" onClick="ContentToModal('#f2 div.fc_body')"><i class="fas fa-expand-arrows-alt"></i></span></div>
+                      <div class="fc_body">
+                          <form id="TestForm" name="TestForm" method="GET" action="#" onsubmit="Authorisation(this); return false;" data-url="/services/modules/main/admin/users/authorisation.php" data-result-selector="#TestForm_Result" data-source-selector="TestForm" data-params="drs:hide;">
+                            <fieldset form="TestForm">
+                                <legend>Авторизация</legend>
+                                <p><label for="login">Логин<em>*</em></label><input type="text" name="login" autocomplete maxlength="20" pattern="^[a-zA-Z0-9_]+$" required title="Разрешены: любые английские буквы, цифры и знак подчеркивания"></p>
+                                <p><label for="pass">Пароль<em>*</em></label><input type="password" name="pass" required maxlength="20" pattern="^[a-zA-Z0-9_~!@#$%^&*-+?]+$"  title="Разрешены: любые английские буквы, цифры и символы: _~!@#$%^&*-+?"></p>
+                                <p><input type="submit" value="Отправить" onclick=""></p>
+                            </fieldset>
+                            <div id="TestForm_Result"></div>
+                          </form>
+                          <script>
+                            
+                          </script>
+                      </div>
+                  </div>
+                  <div id="f3" class="flow_container">
+                      <div class="fc_header"><i class="fas fa-clone"></i>View 2<span class="ico ra click invert" onClick="ContentToModal('#f3 div.fc_body')"><i class="fas fa-expand-arrows-alt"></i></span></div>
+                      <div class="fc_body">
+                          <table class="simple_table only_bottom_border" >
+                              <tr>
+                                  <th> Первая </th>
+                                  <th> Вторая </th>
+                              </tr>
+                              
+                              <tr>
+                                  <td>123455</td>
+                                  <td>5465</td>
+                              </tr>
+                              <tr>
+                                  <td>14355</td>
+                                  <td>543465</td>
+                              </tr>
+                              <tr>
+                                  <td>6785</td>
+                                  <td>5675</td>
+                              </tr>
+                          </table>                          
+                      </div>
+                  </div>
+                  <div id="f4" class="flow_container">F4</div>
+                  <div id="f5" class="flow_container">F5</div>
+              </div>          
+          </div>
+          <div id="right_col" class="f_col">Right_col</div>
+<?
+require_once($_SERVER["DOCUMENT_ROOT"].'/services/templates/main/footer.php');
+?>
