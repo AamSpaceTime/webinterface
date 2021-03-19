@@ -47,7 +47,8 @@ function Authorisation(s) {
     if( Result.sucess ) {
         open_modal('err_alert', '#?w=200px&h=100px', Result.msg);
     } else {
-        open_modal('err_alert', '#?w=200px&h=100px', Result.msg);                                    
+        open_modal('err_alert', '#?w=200px&h=100px', Result.msg);
+        
     }
 
     return Result.sucess;
