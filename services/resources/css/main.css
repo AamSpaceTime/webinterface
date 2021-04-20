@@ -107,7 +107,9 @@ span .click, span [onclick], div .click, div [onclick] {
 /* --- icons --- */
 .ico {
   padding: 2px;
-  border-radius: 2px; }
+  border-radius: 2px;
+    color: #888;
+}
 
 .invert {
   background-color: #888; }
@@ -166,6 +168,9 @@ span .click, span [onclick], div .click, div [onclick] {
     font-size: 14px; }
     .popup_block .btn_close a {
       text-decoration: underline; }
+
+.popup_block_err {
+  background-color: #ad1010; }
 
 /*--Фиксированное позиционирование для тупого IE6--*/
 html #fade, html .popup_block {

@@ -37,16 +37,26 @@ function c_h(event) {
 
 let arrow_click = false;
 //Создаем объект, который будет хранить состояние приложения
-let App = {
+App = {
     "Modal": {
         from_s:"",
         to_s:""
-    }
+    },
+    "User": ""
 };
 
 //Открываем модальное окно с содержимым из элемента с некоторым ID
-function ContentToModal(from_s) {
-    open_modal('err_alert', '#?w=85%&h=85%', $(from_s).html());
+function ContentToModal(from_s, size, style) {
+    let _Params = {
+        "from_s": from_s,
+        "size": '#?w=85%&h=85%',
+        "style": ""
+    };
+    
+    if( size != "" && size != undefined ) { _Params.size = size };
+    if( style != "" && size != undefined ) { _Params.style = style };
+    
+    open_modal('err_alert', _Params.size, $(from_s).html(), _Params.style);
     $(from_s).html("");
     App.Modal.from_s = from_s;
     App.Modal.to_s = '#err_alert';
@@ -82,8 +92,13 @@ function getContent_putNode(Params) {
 
         success: function(msg) { 
             Result.msg = msg; 
-            if( Params.selector != "" && Params.selector != undefined ) 
-            { $(Params.selector).html($(Params.selector).html()+Result.msg); }
+            if( Params.selector != "" && Params.selector != undefined ) { 
+                if( Params.replace ) {
+                    $(Params.selector).html(Result.msg);    
+                } else {
+                    $(Params.selector).html($(Params.selector).html()+Result.msg);
+                }
+            }
             Result.success = true;
         }, 
         error: function(jqXHR, textStatus, errorThrown) { 
@@ -97,6 +112,7 @@ function getContent_putNode(Params) {
 }
 
 //Ставим условие на выполнение кода после загрузки страницы
+let USER;
 $(document).ready(function() {
 
     $('.tree_menu li span > i').click(m_n);
@@ -117,9 +133,9 @@ $(document).ready(function() {
         },
         gutterSize: 2
     });
-
-}); 
-
+    
+    
+});
 
 
      

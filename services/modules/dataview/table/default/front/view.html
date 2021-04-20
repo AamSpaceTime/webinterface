@@ -1,0 +1,12 @@
+<table data-id="dataview-table-default" v-bind:title="title" class="simple_table only_bottom_border" >
+  <thead>
+    <tr>
+        <th v-for="(item, item_i) in th" :key="item_i"><i class="fas fa-arrows-alt-v" title="сортировка: A-Z и Z-A"></i>{{ item }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="(row, row_i) in td" :key="row_i">
+      <td v-for="(item, item_i) in row" :key="item_i">{{ item }}</td>
+    </tr>
+  </tbody>
+</table>

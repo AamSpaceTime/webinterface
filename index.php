@@ -1,6 +1,7 @@
 <?
 require_once($_SERVER["DOCUMENT_ROOT"].'/services/templates/main/header.php');
 ?>
+
           <div id="left_col" class="f_col">
           <nav>
             <ul class="tree_menu">
@@ -14,7 +15,7 @@ require_once($_SERVER["DOCUMENT_ROOT"].'/services/templates/main/header.php');
                         <li><div data-href="#"><i class="fas fa-clone"></i>Третий подраздел</div></li>    
                     </ul>
                     </li>
-                    <li><div data-href="#"><i class="fas fa-clone"></i>Третий подраздел</div></li>
+                    <li><div data-href="#"><i class="fas fa-clone"></i><span class="click" onclick="USER.auth();">Третий подраздел</span></div></li>
 		</ul>
                 </li>
                 <li id="n2_l" class="node"><span data-href="#"><i id="n2_i" class="fas fa-caret-right"></i><i class="fas fa-box"></i>Node 2</span>
@@ -66,7 +67,8 @@ require_once($_SERVER["DOCUMENT_ROOT"].'/services/templates/main/header.php');
                   <div id="f2" class="flow_container">
                       <div class="fc_header"><i class="fas fa-clone"></i>Form 1<span class="ico ra click invert" onClick="ContentToModal('#f2 div.fc_body')"><i class="fas fa-expand-arrows-alt"></i></span></div>
                       <div class="fc_body">
-                          <form id="TestForm" name="TestForm" method="GET" action="#" onsubmit="Authorisation(this); return false;" data-url="/services/modules/main/admin/users/authorisation.php" data-result-selector="#TestForm_Result" data-source-selector="TestForm" data-params="drs:hide;">
+                          <!--
+                          <form id="TestForm" name="TestForm" method="GET" action="#" onsubmit="USER.Authorisation(this); return false;" data-url="/services/modules/main/admin/users/auth/" data-result-selector="#TestForm_Result" data-source-selector="TestForm" data-params="drs:hide;">
                             <fieldset form="TestForm">
                                 <legend>Авторизация</legend>
                                 <p><label for="login">Логин<em>*</em></label><input type="text" name="login" autocomplete maxlength="20" pattern="^[a-zA-Z0-9_]+$" required title="Разрешены: любые английские буквы, цифры и знак подчеркивания"></p>
@@ -75,9 +77,7 @@ require_once($_SERVER["DOCUMENT_ROOT"].'/services/templates/main/header.php');
                             </fieldset>
                             <div id="TestForm_Result"></div>
                           </form>
-                          <script>
-                            
-                          </script>
+                          //-->
                       </div>
                   </div>
                   <div id="f3" class="flow_container">

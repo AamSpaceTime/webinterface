@@ -41,6 +41,10 @@
     }
 }
 
+.popup_block_err {
+    background-color: $c_g_bg_err;
+}
+
 /*--Фиксированное позиционирование для тупого IE6--*/
 html {
     #fade, .popup_block  {

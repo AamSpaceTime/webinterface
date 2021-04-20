@@ -19,10 +19,13 @@ $(document).ready(function(){
 
 });
 
-function open_modal (popID, popURL, text, css_class)
-{
-        //var popID = $(this).attr('rel'); //Get Popup Name
-        //var popURL = $(this).attr('href'); //Get Popup href to define size
+function open_modal (popID, popURL, text, css_class) {
+
+        //Если в окне сейчас что-то есть и App.Modal.from_s не пусто - возвращаем контент по селектору
+        if( App.Modal.from_s !== "" ) {
+            $(App.Modal.from_s).html($('#'+popID).html());
+            App.Modal.from_s = "";
+        }
 
         //Pull Query & Variables from href URL
         var query= popURL.split('?');
@@ -53,10 +56,12 @@ function open_modal (popID, popURL, text, css_class)
                 $('#' + popID).fadeIn().css({ 'width': popWidth }).prepend('<div class="btn_close"><a href="#" class="close"><i class="far fa-times-circle"></i></a></div>');
         }
         
+        $('#' + popID).removeClass();
+        $('#' + popID).addClass('popup_block');
         if( css_class != undefined ) {
-            //$('#' + popID).removeClass()
-            //$('#' + popID).addClass()
+            $('#' + popID).addClass(css_class);
         }
+        
         //Define margin for center alignment (vertical + horizontal) - we add 80 to the height/width to accomodate for the padding + border width defined in the css
         var popMargTop = ($('#' + popID).height() + 80) / 2;
         var popMargLeft = ($('#' + popID).width() + 40) / 2;

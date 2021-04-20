@@ -41,6 +41,9 @@
     .popup_block .btn_close a {
       text-decoration: underline; }
 
+.popup_block_err {
+  background-color: #ad1010; }
+
 /*--Фиксированное позиционирование для тупого IE6--*/
 html #fade, html .popup_block {
   position: absolute; }
