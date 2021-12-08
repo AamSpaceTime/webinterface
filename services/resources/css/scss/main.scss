@@ -85,7 +85,30 @@ a {
 span, div {
     .click, [onclick] {
         cursor: pointer;
-        &:hover { color:$c_g_a_h; }
+        &:hover, { color:$c_g_a_h; };
+        &:hover .a50, &:hover .a00 { opacity: 0.7 }
+    }
+}
+
+.selected {
+    color:$c_g_a_h;
+}
+
+.selectedchose {
+    color:$c_g_ch;
+}
+
+.a50 {
+    opacity: .5;
+    &:hover {
+        opacity: 1.0;    
+    }
+}
+
+.a00 {
+    opacity: .0;
+    &:hover {
+        opacity: 1.0;    
     }
 }
 
@@ -110,7 +133,7 @@ span, div {
 .fc_header {
     width: 100%;
     padding-bottom: 5px;
-    height: 20px;
+    min-height: 20px;
     overflow: hidden;
 }
 
@@ -123,6 +146,8 @@ span, div {
 .dn {
     display:none;
 }
+
+
 
 .ra {
     float: right;
@@ -137,6 +162,7 @@ span, div {
 .ico {
     padding:2px;
     border-radius: 2px;
+    margin:0px 2px 2px 2px;
 }
 
 .invert {
@@ -155,6 +181,7 @@ span, div {
 .fas {
     font-size: large;
     padding-right: 5px;
+    vertical-align: -1px;
 }
 
 /* --- modal window ---*/

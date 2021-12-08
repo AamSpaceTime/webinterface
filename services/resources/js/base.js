@@ -1,13 +1,10 @@
 export class BaseObj {
     
+    static m_path = "";
+    
     _Prop = {
-        front:{
-            path:"",
-            selector:""
-        },
-        back:{
-            path:""
-        }        
+        selector:"",
+        path:""
     };
     
     constructor(prop, methods) {
@@ -76,10 +73,10 @@ export class BaseObj {
         };
         
         let _Params = {
-            url:this._Prop.front.path+"view.html",
+            url:this._Prop.path+"view.html",
             data:{},
             async:false,
-            selector:this._Prop.front.selector,
+            selector:this._Prop.selector,
             replace:true
         };
         
@@ -117,7 +114,7 @@ export class BaseObj {
     }
     
     //Получаем модель с данными из контроллера
-    get_Model(Params) {
+    get_Model(Params, simple=false) {
         
         let Result = {
             msg: "",
@@ -125,7 +122,7 @@ export class BaseObj {
         };
         
         let _Params = {
-            url:this._Prop.back.path,
+            url:this._Prop.path,
             data:{},
             async:false
         };
@@ -152,28 +149,30 @@ export class BaseObj {
         });
         
         if( Result.success ) {
-            this._Prop["Model"] = JSON.parse(Result.msg);
-            if( this._Prop.Model.err.code !== "" ) {
-                open_modal('err_alert', '#?w=200px&h=100px', this._Prop.Model.err.msg, 'popup_block_err');
+            
+            if(!simple) {
+                this._Prop["Model"] = JSON.parse(Result.msg);
+                //Сохраняем исходный вид модели на случай, если потребуется сбросить все сртировки и изменения к исходному виду
+                this._Prop["RefreshModel"] = JSON.parse(Result.msg);  
+                if( this._Prop.Model.err.code !== "" ) {
+                    open_modal('err_alert', '#?w=200px&h=100px', this._Prop.Model.err.msg, 'popup_block_err');
+                } else {
+                    //Успешная загрузка
+                    console.log(this._Prop["Model"]);
+                }
             } else {
-                //Успешная авторизация
-                console.log(this._Prop["Model"]);
+                Result.msg = JSON.parse(Result.msg)
             }
         } else {
             open_modal('err_alert', '#?w=200px&h=100px', Result.msg);       
         }
 
-        return Result.sucess;
+        return Result;
    
     }
     
     //Связывание модели с Vue
     bind_Vue(Params) {
-    
-        let Result = {
-            msg: "",
-            success: false
-        };
         
         let _Params = {
             selector:"",
@@ -189,7 +188,19 @@ export class BaseObj {
         this._Prop["Vue"] = new Vue(_Params);
     }
     
-    
+
+    //Возвращаем сортироку по умолчанию (т.е. образ исходных данных)
+    Refresh(event) {
+        alert("Возвращаем первоначальный вид данных");
+        this._Prop.Model.data.model = JSON.parse(JSON.stringify(this._Prop.RefreshModel.data));
+        this._Prop["Vue"].$forceUpdate();        
+    }
+
+    //Занового загружаем данные из контроллера
+    Reload(event) {
+        alert("Заново загрузили данные модели из контроллера");
+        this.get_Model("", true);
+    }
     
     //Получаем обновленные данные из контроллера
     update_Model() {

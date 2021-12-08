@@ -29,6 +29,14 @@ class PowerBatteryController extends PowerBattery {
                 throw new Exception($this->Err["CodeList"][1002], 1002);
             }
             
+            if( $_REQUEST["filter"] != "" ) {            
+                $filter = $PD->clearData("filter");
+                if(!preg_match("/^[a-zA-Z0-9_~!@#$%^&*-+?]+$/", $filter)) {
+                    throw new Exception('Поле фильтра содержит запрещенные символы', 1003);
+                }
+                $this->Settings["filter"] = $filter;
+            }
+            
             $Result = true;
         } catch (Exception $e) {
             $Result["err"]["code"] = $e->getCode();
@@ -41,20 +49,41 @@ class PowerBatteryController extends PowerBattery {
     //Метод получает данные из БД
     public function getData($filter="") {
         //Пока ставим заглушку
-        $Result = Array(
-            'data' => Array(
+            $Result = Array(
+                'data' => Array(),
+                'err' => Array(
+                    'code' => '',
+                    'msg' => ''
+                ),
+                'view' => $_REQUEST['view']
+            );        
+        
+        if( $_REQUEST['view'] == "Sortable" ) {            
+            $Result["data"] = Array(
+                'title' => "Table",
+                'cols' => Array(
+                    Array("name"=>"First", "ico"=>"fas fa-sort-alpha-down a00"),
+                    Array("name"=>"Second", "ico"=>"fas fa-sort-alpha-down a00")
+                    ),
+                'rows' => Array(
+                    Array("id"=>"1", "td"=>Array("30", "40")),
+                    Array("id"=>"2", "td"=>Array("50", "60")),
+                    Array("id"=>"3", "td"=>Array("10", "20")),
+                    Array("id"=>"4", "td"=>Array("5", "5"))
+                )
+            );           
+        } else {            
+            $Result["data"] = Array(
                 'title' => "",
                 'th' => Array("Заголовок 1", "Заголовок 2"),
                 'td' => Array(
                     Array("строка 1 колонка 1", "строка 1 колонка 2"),
                     Array("строка 2 колонка 1", "строка 2 колонка 2"),
-                )
-            ),
-            'err' => Array(
-                'code' => '',
-                'msg' => ''
-            )
-        );
+                    Array("строка 3 колонка 1", "строка 3 колонка 2")
+                ),
+            );           
+        }
+                
         $this->setProp($Result);
     }
     

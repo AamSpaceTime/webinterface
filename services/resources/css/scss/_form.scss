@@ -2,11 +2,13 @@
 
 @import "colors";
 
-fieldset {
+fieldset.main {
     border-width: 1px;
+    padding:10px;
+    margin:5px;
 }
 
-input[type="text"], input[type="password"] {
+fieldset.main input[type="text"], fieldset.main input[type="password"] {
     margin: 0 10px 0 10px;
     border-color: $c_g_bg_h;
     border-width: 1px;
@@ -31,7 +33,7 @@ input[type="text"], input[type="password"] {
     
 }
 
-input[type="submit"], input[type="button"], input[type="reset"] {
+fieldset.main input[type="submit"], fieldset.main input[type="button"], fieldset.main input[type="reset"] {
     background-color: $c_g_br;
     padding: 5px 10px 5px 10px;
     color: $с_g_bg;

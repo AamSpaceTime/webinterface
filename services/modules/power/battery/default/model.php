@@ -22,15 +22,18 @@ class PowerBattery extends RootObject {
             'msg' => ''
         )
     );
+    private $Settings = Array(
+        'filter' => '' //код или объект с параметрами для фильтрации данных из БД в методе getData
+    );
     
     private function init() {
         $Result = $this->Err["CodeList"];
         $Result[1003] = 'Ошибка проверки входных данных';
     }
-    
+
     //Метод получает данные из БД
     public function getData($filter="") {
-        //Здесь должна быть реализация запроса к БД с фильтром $filter
+        //Здесь и/или в контроллере для этого метода должна быть реализация запроса к БД с фильтром $filter
     }
     
     //Метод выполняет работу по запросу

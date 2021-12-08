@@ -2,6 +2,17 @@
 /*
     Created on : 9 мар. 2021 г., 9:41:25
     Author     : andym
+    правило именования переменной цвета
+    с_ = color, цвет
+    g_ = global, глобальный т.е. для всей страницы
+    t = text, для текста
+    a = anhor, для ссылки
+    bg = background, для подложки
+    br = border, разделительная линия
+    h = hover, при наведении курсора
+    l = light, условно светлый (т.е. светлее, относительно цвета по умолчанию для данного элемента)
+    b = black, условно темный цвет (т.е. темнее, относительно цвета по умолчанию для данного элемента)
+    ch = chosen, выбранный
 */
 /* --- Global Stucture ---*/
 html, body, .flex_main_container {
@@ -70,6 +81,24 @@ span .click, span [onclick], div .click, div [onclick] {
   cursor: pointer; }
   span .click:hover, span [onclick]:hover, div .click:hover, div [onclick]:hover {
     color: #3366ff; }
+  span .click:hover .a50, span .click:hover .a00, span [onclick]:hover .a50, span [onclick]:hover .a00, div .click:hover .a50, div .click:hover .a00, div [onclick]:hover .a50, div [onclick]:hover .a00 {
+    opacity: 0.7; }
+
+.selected {
+  color: #3366ff; }
+
+.selectedchose {
+  color: #fb8c00; }
+
+.a50 {
+  opacity: .5; }
+  .a50:hover {
+    opacity: 1.0; }
+
+.a00 {
+  opacity: .0; }
+  .a00:hover {
+    opacity: 1.0; }
 
 /* --- blocks --- */
 .flow_container {
@@ -89,7 +118,7 @@ span .click, span [onclick], div .click, div [onclick] {
 .fc_header {
   width: 100%;
   padding-bottom: 5px;
-  height: 20px;
+  min-height: 20px;
   overflow: hidden; }
 
 .fc_body {
@@ -108,8 +137,7 @@ span .click, span [onclick], div .click, div [onclick] {
 .ico {
   padding: 2px;
   border-radius: 2px;
-    color: #888;
-}
+  margin: 0px 2px 2px 2px; }
 
 .invert {
   background-color: #888; }
@@ -124,13 +152,25 @@ span .click, span [onclick], div .click, div [onclick] {
 .fab,
 .fas {
   font-size: large;
-  padding-right: 5px; }
+  padding-right: 5px;
+  vertical-align: -1px; }
 
 /* --- modal window ---*/
 /* --- Модальное окно --- */
 /*
     Created on : 9 мар. 2021 г., 9:41:25
     Author     : andym
+    правило именования переменной цвета
+    с_ = color, цвет
+    g_ = global, глобальный т.е. для всей страницы
+    t = text, для текста
+    a = anhor, для ссылки
+    bg = background, для подложки
+    br = border, разделительная линия
+    h = hover, при наведении курсора
+    l = light, условно светлый (т.е. светлее, относительно цвета по умолчанию для данного элемента)
+    b = black, условно темный цвет (т.е. темнее, относительно цвета по умолчанию для данного элемента)
+    ch = chosen, выбранный
 */
 #fade {
   /*--Прозрачный слой фона--*/
@@ -192,6 +232,17 @@ html #fade, html .popup_block {
 /*
     Created on : 9 мар. 2021 г., 9:41:25
     Author     : andym
+    правило именования переменной цвета
+    с_ = color, цвет
+    g_ = global, глобальный т.е. для всей страницы
+    t = text, для текста
+    a = anhor, для ссылки
+    bg = background, для подложки
+    br = border, разделительная линия
+    h = hover, при наведении курсора
+    l = light, условно светлый (т.е. светлее, относительно цвета по умолчанию для данного элемента)
+    b = black, условно темный цвет (т.е. темнее, относительно цвета по умолчанию для данного элемента)
+    ch = chosen, выбранный
 */
 .tree_menu ul, ul.tree_menu {
   margin: 0;
@@ -256,6 +307,17 @@ html #fade, html .popup_block {
 /*
     Created on : 9 мар. 2021 г., 9:41:25
     Author     : andym
+    правило именования переменной цвета
+    с_ = color, цвет
+    g_ = global, глобальный т.е. для всей страницы
+    t = text, для текста
+    a = anhor, для ссылки
+    bg = background, для подложки
+    br = border, разделительная линия
+    h = hover, при наведении курсора
+    l = light, условно светлый (т.е. светлее, относительно цвета по умолчанию для данного элемента)
+    b = black, условно темный цвет (т.е. темнее, относительно цвета по умолчанию для данного элемента)
+    ch = chosen, выбранный
 */
 .simple_table {
   width: 100%;
@@ -289,11 +351,24 @@ html #fade, html .popup_block {
 /*
     Created on : 9 мар. 2021 г., 9:41:25
     Author     : andym
+    правило именования переменной цвета
+    с_ = color, цвет
+    g_ = global, глобальный т.е. для всей страницы
+    t = text, для текста
+    a = anhor, для ссылки
+    bg = background, для подложки
+    br = border, разделительная линия
+    h = hover, при наведении курсора
+    l = light, условно светлый (т.е. светлее, относительно цвета по умолчанию для данного элемента)
+    b = black, условно темный цвет (т.е. темнее, относительно цвета по умолчанию для данного элемента)
+    ch = chosen, выбранный
 */
-fieldset {
-  border-width: 1px; }
+fieldset.main {
+  border-width: 1px;
+  padding: 10px;
+  margin: 5px; }
 
-input[type="text"], input[type="password"] {
+fieldset.main input[type="text"], fieldset.main input[type="password"] {
   margin: 0 10px 0 10px;
   border-color: #606060;
   border-width: 1px;
@@ -302,9 +377,9 @@ input[type="text"], input[type="password"] {
   padding: 5px 10px 5px 10px;
   border-style: dashed;
   border-radius: 5px; }
-  input[type="text"]:hover, input[type="password"]:hover {
+  fieldset.main input[type="text"]:hover, fieldset.main input[type="password"]:hover {
     border-color: #3366ff; }
-  input[type="text"]:focus, input[type="text"]:active, input[type="password"]:focus, input[type="password"]:active {
+  fieldset.main input[type="text"]:focus, fieldset.main input[type="text"]:active, fieldset.main input[type="password"]:focus, fieldset.main input[type="password"]:active {
     background-color: #fff;
     color: #3366ff;
     outline: 0;
@@ -312,13 +387,13 @@ input[type="text"], input[type="password"] {
     border-style: solid;
     border-color: #606060; }
 
-input[type="submit"], input[type="button"], input[type="reset"] {
+fieldset.main input[type="submit"], fieldset.main input[type="button"], fieldset.main input[type="reset"] {
   background-color: #888;
   padding: 5px 10px 5px 10px;
   color: #404040;
   border-radius: 5px;
   border: none; }
-  input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
+  fieldset.main input[type="submit"]:hover, fieldset.main input[type="button"]:hover, fieldset.main input[type="reset"]:hover {
     background-color: #3366ff;
     color: #fff;
     outline: 0;
